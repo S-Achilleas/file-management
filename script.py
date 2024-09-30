@@ -11,3 +11,5 @@ for file in files:
         shutil.unpack_archive(f'/Users/axilleas/Downloads/{file}', f'/Users/axilleas/Downloads/{file}:unzipped')
         shutil.rmtree(f'/Users/axilleas/Downloads/{file}')
         shutil.move(f'/Users/axilleas/Downloads/{file}:unzipped', '/Users/axilleas/Documents')
+    elif file.endswith('.dmg') or file.endswith('.exe'):
+        shutil.rmtree(f'/Users/axilleas/Downloads/{file}')
