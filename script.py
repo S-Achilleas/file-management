@@ -13,3 +13,5 @@ for file in files:
         shutil.move(f'/Users/axilleas/Downloads/{file}:unzipped', '/Users/axilleas/Documents')
     elif file.endswith('.dmg') or file.endswith('.exe'):
         shutil.rmtree(f'/Users/axilleas/Downloads/{file}')
+    else:
+        shutil.move(f'/Users/axilleas/Downloads/{file}', '/Users/axilleas/Documents')
