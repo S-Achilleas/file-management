@@ -26,21 +26,21 @@ def move_file(file_path, destination):
     # Move the file to the destination path
     shutil.move(file_path, dest_path)
 
-files = os.listdir('/Users/axilleas/Downloads')
+files = os.listdir('/YOURPATH/Downloads')
 for file in files:
-    file_path = f'/Users/axilleas/Downloads/{file}'
+    file_path = f'/YOURPATH/Downloads/{file}'
     if file.endswith('.pdf') or file.endswith('.docx') or file.endswith('.txt') or file.endswith('.xls') or file.endswith('.pptx'):
-        move_file(file_path, '/Users/axilleas/Documents')
+        move_file(file_path, '/YOURPATH/Documents')
     elif file.endswith('.jpg') or file.endswith('.png') or file.endswith('.jpeg'):
-        move_file(file_path, '/Users/axilleas/Pictures')
+        move_file(file_path, '/YOURPATH/Pictures')
     elif file.endswith('.zip') or file.endswith('.tar') or file.endswith('.gz'):
         # Extract the archive to a new directory
-        extract_to = f'/Users/axilleas/Downloads/{file}_unzipped'
+        extract_to = f'/YOURPATH/Downloads/{file}_unzipped'
         shutil.unpack_archive(file_path, extract_to)
         # Remove the original archive file
         os.remove(file_path)
         # Move the extracted directory to the Documents directory
-        move_file(extract_to, '/Users/axilleas/Documents')
+        move_file(extract_to, '/YOURPATH/Documents')
     elif file.endswith('.dmg') or file.endswith('.exe') or file.endswith('.DS_Store'):
         # If it's a directory, remove it
         if os.path.isdir(file_path):
