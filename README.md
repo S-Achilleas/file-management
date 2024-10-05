@@ -1,23 +1,66 @@
-# File Management Script
+# File Organizer Script
 
-This Python script automatically organizes files in the Downloads directory based on their file type. It moves files to appropriate directories such as Documents, Pictures, and extracts archives to a specified location.
+This Python script automates the organization of files from your `Downloads` directory, moving them into appropriate folders based on file type and handling special cases like archive extraction.
 
-## Features
+## How It Works
 
-- Moves PDF, DOCX, TXT, XLS, and PPTX files to the Documents directory.
-- Moves JPG, PNG, and JPEG files to the Pictures directory.
-- Extracts ZIP, TAR, and GZ archives and moves the extracted contents to the Documents directory.
-- Removes DMG, EXE, and DS_Store files.
-- Renames files if a file with the same name already exists in the destination directory.
+- **Move Documents**: Files like `.pdf`, `.docx`, `.txt`, `.xls`, `.pptx` are moved to the `Documents` folder.
+- **Move Images**: Files like `.jpg`, `.png`, `.jpeg` are moved to the `Pictures` folder.
+- **Extract Archives**: Archive files like `.zip`, `.tar`, `.gz` are extracted and then moved to `Documents`. The original archive is deleted.
+- **Delete Unnecessary Files**: Files such as `.dmg`, `.exe`, `.DS_Store` are removed.
+- **Other Files**: Files not fitting into the above categories are moved to the `Documents` folder by default.
 
-## Requirements
+## Prerequisites
 
-- Python 3.x
+- **Python 3.x**
+- Standard Python libraries (`os`, `shutil`)
 
-## Usage
+## Usage Instructions
 
-1. Clone the repository or download the script.
-2. Open a terminal and navigate to the directory containing the script.
-3. Run the script using the following command:
-   ```sh
-   python3 script.py
+### 1. Clone the Repository
+```bash
+git clone https://github.com/S-Achilleas/file-management.git
+
+## 2. Modify the script
+
+Replace all instances of `/YOURPATH/` with the correct paths on your system.
+
+### Example:
+```python
+files = os.listdir('/YOURPATH/Downloads')
+```
+
+Replace `/YOURPATH/Downloads` with your actual `Downloads` directory path, and update the destination paths accordingly:
+
+- `/YOURPATH/Documents`
+- `/YOURPATH/Pictures`
+- `/YOURPATH/Downloads/{file}_unzipped`
+
+## 3. Run the script
+
+Navigate to the directory where the script is located and execute it:
+
+```bash
+python script.py
+```
+
+The script will automatically organize the files in your `Downloads` folder based on their types, moving them to the appropriate folders.
+
+### Example Paths
+
+- **Downloads Directory**: `/Users/yourname/Downloads`
+- **Documents Directory**: `/Users/yourname/Documents`
+- **Pictures Directory**: `/Users/yourname/Pictures`
+
+Make sure to update these paths to reflect your actual directory structure.
+
+## Notes
+
+- If a file with the same name already exists in the destination folder, the script will automatically rename the file by appending a counter (e.g., `example_1.txt`).
+- Archive files (`.zip`, `.tar`, `.gz`) are extracted to a new directory, which is then moved to the `Documents` folder. The original archive is deleted after extraction.
+- Unwanted files such as `.dmg`, `.exe`, and `.DS_Store` are removed from the `Downloads` directory.
+
+## License
+
+This project is licensed under the MIT License.
+
